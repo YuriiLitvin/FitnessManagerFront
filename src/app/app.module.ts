@@ -3,13 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import{CardComponent} from './card/card.component';
 import {CoachListComponent} from './coachList/coachList.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
     CoachListComponent
   ],
   imports: [
