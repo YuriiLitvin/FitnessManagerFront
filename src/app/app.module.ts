@@ -8,7 +8,7 @@ import {CoachListComponent} from './coachList/coachList.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CoachListComponent
+    CoachListComponent,
   ],
   imports: [
     BrowserModule,

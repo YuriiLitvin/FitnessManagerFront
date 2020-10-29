@@ -2,8 +2,8 @@
     <div>
         <h3>{{title}}</h3>
         <ul>
-            <li *ngFor="let coach of coaches; index as i; trackBy: trackByFn">
-                {{coach.firstName}}
+            <li *ngFor="let coach of coaches">
+                {{coach}}
             </li>
         </ul>
     </div> 
