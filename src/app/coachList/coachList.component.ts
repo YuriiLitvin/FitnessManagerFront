@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CoachService} from '../coach.service';
+import {CoachService} from 'src/app/services/coach.service';
 
 @Component({
     selector: 'app-coachList',
@@ -8,14 +8,14 @@ import {CoachService} from '../coach.service';
 })
 export class CoachListComponent implements OnInit {
     title = 'coaches'
-    
     constructor (private coachService: CoachService) {}
     
+
     ngOnInit() {
-        this.getCoaches();
+       return this.getCoaches();
     }
 
     getCoaches() {
-       const coaches = this.coachService.GetCoaches(); 
+      return this.coachService.GetCoaches(); 
     }
 }

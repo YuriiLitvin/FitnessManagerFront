@@ -1,9 +1,10 @@
 <div class = "coachList">
     <div>
+        
         <h3>{{title}}</h3>
         <ul>
-            <li *ngFor="let coach of coaches">
-                {{coach}}
+            <li *ngFor="let coach of ngOnInit()">
+                <pre>{{ coach | json}}</pre>
             </li>
         </ul>
     </div> 
