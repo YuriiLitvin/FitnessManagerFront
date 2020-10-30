@@ -1,4 +1,4 @@
-export interface Coach {
+export class Coach {
     firstName: string;
     lastName: string;
     email: string;
