@@ -7,8 +7,8 @@ import {PageNotFoundComponent} from 'src/app/page-not-found/page-not-found.compo
 const routes: Routes = [
   {path: 'coach', component: CoachListComponent},
   {path: 'coach/add', component: AddOrEditCoachComponent},
-  {path: 'coach/edit/:id',component: AddOrEditCoachComponent},
-  {path: '',redirectTo: '/coach', pathMatch: 'full'},
+  {path: 'coach/edit/:id', component: AddOrEditCoachComponent},
+  {path: '', redirectTo: '/coach', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
 
 ];

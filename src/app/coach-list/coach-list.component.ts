@@ -3,21 +3,21 @@ import {CoachService} from 'src/app/services/coach.service';
 import {Coach} from 'src/app/coach';
 
 @Component({
-    selector: 'app-coachList',
-    templateUrl: './coachList.component.html',
-    styleUrls: ['./coachList.component.scss']
+    selector: 'app-coach-list',
+    templateUrl: './coach-list.component.html',
+    styleUrls: ['./coach-list.component.scss']
 })
 export class CoachListComponent implements OnInit {
-    title = 'coaches'
-    constructor (private coachService: CoachService) {}
+    title = 'coaches';
+    constructor(private coachService: CoachService) {}
     
-    coaches: Coach[]
+    coaches: Coach[];
     
-    ngOnInit() {
+    ngOnInit(): void {
        this.getCoaches();
     }
 
-    getCoaches() {
+    getCoaches(): void {
       this.coaches = this.coachService.GetCoaches(); 
     }
 }

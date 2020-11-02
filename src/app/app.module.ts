@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {CoachListComponent} from './coachList/coachList.component';
+import {CoachListComponent} from './coach-list/coach-list.component';
 import { AddOrEditCoachComponent } from './add-or-edit-coach/add-or-edit-coach.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
