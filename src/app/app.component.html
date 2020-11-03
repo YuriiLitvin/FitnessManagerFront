@@ -1,6 +1,17 @@
 <div class ="container">
   <h1>FitnessManagerFront</h1>
-    
-  
-  <app-coach-list></app-coach-list>
+    <nav>
+
+      <ul>  
+          <li><a routerLink="/coach" routerLinkActive ="active"> Coach List</a>
+          </li>
+          <li><a routerLink="/coach/add" routerLinkActive ="active"> Add or Edit Coach</a>
+          </li>
+          <li><a routerLink="/coach/add/:id" routerLinkActive ="active"> Add or Edit Coach</a></li>
+      </ul>
+
+
+    </nav>
+    <router-outlet></router-outlet>
+  <!--app-coach-list></app-coach-list-->
 </div>
