@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CoachService} from 'src/app/services/coach.service';
 import {Coach} from 'src/app/coach';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-coach-list',
@@ -9,19 +10,19 @@ import {Coach} from 'src/app/coach';
 })
 export class CoachListComponent implements OnInit {
     title = 'coaches';
-    constructor(private coachService: CoachService) {}
     
     id: string;
-    coach: Coach;
-    coaches: Coach[];
+    $coach = new Subject<Coach>();
+    $coaches = new Subject<Coach[]>();
+
+    constructor(private coachService: CoachService) {}
     
     ngOnInit(): void {
-       // this.getCoaches();
     }
 
     getCoaches(): void {
-      this.coachService.GetCoachesFromApi()
-      .subscribe(coaches => this.coaches = coaches); 
+      this.coachService.getCoachesFromApi()
+      .subscribe(coaches => this.$coaches.next(coaches)); 
     }
 
     inputHandler(event: any): void {
@@ -29,11 +30,12 @@ export class CoachListComponent implements OnInit {
     }
 
     getCoacheById(): void {
-      this.coachService.GetCoachById(this.id)
-      .subscribe((coach: Coach) => this.coach = coach);
+      this.coachService.getCoachById(this.id)
+      .subscribe(coach => this.$coach.next(coach));
     }
 
     deleteCoach(): void {
-      this.coachService.DeleteCoach(this.id);
+      this.coachService.deleteCoach(this.id)
+      .subscribe((coach: Coach) => this.$coach.next(coach));
     }
 }

@@ -12,11 +12,11 @@
     <div>
         
         
-        <!-- <ul>
-            <li *ngFor="let coach of coaches">
+        <ul>
+            <li *ngFor="let coach of $coaches | async">
                 <pre>{{ coach | json}}</pre>
             </li>
-        </ul> -->
+        </ul>
     </div>
     
 
