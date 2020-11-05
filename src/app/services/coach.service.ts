@@ -1,5 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Coach} from 'src/app/coach';
+import {Observable} from 'rxjs';
+import {tap, map} from 'rxjs/operators';
+
+
 
 
 
@@ -9,7 +14,9 @@ import {Coach} from 'src/app/coach';
 
 export class CoachService {
 
-  constructor() { }
+  apiUrl = 'https://localhost:5001/api/Coach/';
+  
+  constructor(private readonly httpClient: HttpClient) { }
 
   coaches = [{
     firstName: 'Petrovich',
@@ -57,4 +64,21 @@ export class CoachService {
   GetCoaches(): Coach[] {
     return this.coaches;
   }
+
+  GetCoachesFromApi(): Observable<Coach[]> {
+    return this.httpClient.get(this.apiUrl).pipe(
+      tap((coaches: Coach[]) => console.log(coaches))); 
+  }
+  
+  GetCoachById(id: string): Observable<Coach> {
+    return this.httpClient.get(this.apiUrl + id).pipe(
+      tap((coach: Coach) => console.log(coach)));
+  }
+
+  DeleteCoach(id: string): void {
+    this.httpClient.delete(this.apiUrl + id);  
+  }
 }
+
+
+

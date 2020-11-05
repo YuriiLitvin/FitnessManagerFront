@@ -1,11 +1,23 @@
 <div class = "coachList">
+    <h3>{{title}}</h3>
+    
+    <button class="button" (click)="getCoaches()">Get Coaches</button>
+    
+    
+    <div>
+        <input type="text" (input) = "inputHandler($event)" [value] = "id">
+    </div>
+    <button (click)="getCoacheById()">Get Coach By Id</button>
+    <button (click)="deleteCoach()">Delete Coach</button>
     <div>
         
-        <h3>{{title}}</h3>
-        <ul>
+        
+        <!-- <ul>
             <li *ngFor="let coach of coaches">
                 <pre>{{ coach | json}}</pre>
             </li>
-        </ul>
-    </div> 
+        </ul> -->
+    </div>
+    
+
 </div>
