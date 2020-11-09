@@ -9,15 +9,16 @@ import { Subject } from 'rxjs';
     styleUrls: ['./coach-list.component.scss']
 })
 export class CoachListComponent implements OnInit {
-    title = 'coaches';
     
     id: string;
     $coach = new Subject<Coach>();
     $coaches = new Subject<Coach[]>();
+    
 
     constructor(private coachService: CoachService) {}
     
     ngOnInit(): void {
+      this.getCoaches();
     }
 
     getCoaches(): void {

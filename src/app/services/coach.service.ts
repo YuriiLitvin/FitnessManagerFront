@@ -75,7 +75,7 @@ export class CoachService {
       tap((coach: Coach) => console.log(coach)));
   }
 
-  deleteCoach(id: string): Observable<object> {
+  deleteCoach(id: string): Observable<{}> {
     return this.httpClient.delete(this.apiUrl + id);  
   }
 }
