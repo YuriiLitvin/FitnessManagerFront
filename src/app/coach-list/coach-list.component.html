@@ -4,39 +4,16 @@
         <div>Type of Training</div>
         <div></div>  
     </div>
-    <div class="flex-container2">
-        <div>   
-            <ul >
-                <li *ngFor="let coach of $coaches | async">
-                    <pre>{{ coach.firstName | json}}</pre>
-                </li>
-            </ul>
-        </div> 
-        <div>   
-            <ul >
-                <li *ngFor="let coach of $coaches | async">
-                    <pre>{{ coach.typeOfTraining | json}}</pre>
-                </li>
-            </ul>
-        </div> 
-        <div>
-            <ul >
-                <li *ngFor="let coach of $coaches | async">
-                    <pre>Edit | Details | Delete</pre>
-                </li>
-            </ul>
-        </div>
-    
-    </div>
-        
-</div>
-    
-    
-    <!-- <div>
-        <input type="text" (input) = "inputHandler($event)" [value] = "id">
-    </div> -->
-    <button (click)="getCoacheById()">Get Coach By Id</button>
-    <button (click)="deleteCoach()">Delete Coach</button>
     <div>
+        <div>   
+            <ul >
+                <li class="flex-container2" *ngFor="let coach of $coaches | async">
+                    <div>{{ coach.firstName | json}}</div>
+                    <div>{{ coach.typeOfTraining | json}}</div>
+                    <div>Edit | <button (click)="getCoachById()">Details</button> | <button (click)="deleteCoach()">Delete</button>
+                    </div>
 
+                </li>
+            </ul>
+        </div> 
 </div>

@@ -27,15 +27,15 @@
   }
   .flex-container2 {
     display: flex;
-    justify-content: center;
-    background-color: black;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
   }
 
-  .flex-container2 > div {
-    background-color: white;
-    width: 500px;
+  .flex-container2 > li {
+    width: 1000px;
     text-indent: 20px;
-    text-align: left;
+    text-align: center;
     line-height: 20px;
     font-size: 15px;
   }

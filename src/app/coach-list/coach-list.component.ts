@@ -30,7 +30,7 @@ export class CoachListComponent implements OnInit {
       this.id = event.target.value;
     }
 
-    getCoacheById(): void {
+    getCoachById(): void {
       this.coachService.getCoachById(this.id)
       .subscribe(coach => this.$coach.next(coach));
     }
