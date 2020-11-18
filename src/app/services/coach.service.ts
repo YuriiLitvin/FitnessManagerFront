@@ -5,9 +5,6 @@ import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +22,7 @@ export class CoachService {
   
   getCoachById(id: string): Observable<Coach> {
     return this.httpClient.get(this.apiUrl + id).pipe(
-      tap((coach: Coach) => console.log(coach)));
+      tap((coach: Coach) => coach));
   }
 
   deleteCoach(id: string): Observable<{}> {

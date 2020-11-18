@@ -10,7 +10,6 @@ import { Subject } from 'rxjs';
 })
 export class CoachListComponent implements OnInit {
     
-    id: string;
     $coach = new Subject<Coach>();
     $coaches = new Subject<Coach[]>();
     
@@ -26,17 +25,14 @@ export class CoachListComponent implements OnInit {
       .subscribe(coaches => this.$coaches.next(coaches)); 
     }
 
-    inputHandler(event: any): void {
-      this.id = event.target.value;
-    }
 
-    getCoachById(): void {
-      this.coachService.getCoachById(this.id)
+    getCoachById(id: string): void {
+      this.coachService.getCoachById(id)
       .subscribe(coach => this.$coach.next(coach));
     }
 
-    deleteCoach(): void {
-      this.coachService.deleteCoach(this.id)
+    deleteCoach(id: string): void {
+      this.coachService.deleteCoach(id)
       .subscribe((coach: Coach) => this.$coach.next(coach));
     }
 }

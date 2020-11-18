@@ -10,10 +10,13 @@
                 <li class="flex-container2" *ngFor="let coach of $coaches | async">
                     <div>{{ coach.firstName | json}}</div>
                     <div>{{ coach.typeOfTraining | json}}</div>
-                    <div><button (click)="getCoachById()">Edit</button> | <button (click)="getCoachById()">Details</button> | <button (click)="deleteCoach()">Delete</button>
+                    <div><button (click)="getCoachById(coach.id)">Edit</button> | <button (click)="getCoachById(coach.id)">Details</button> | <button (click)="deleteCoach(coach.id)">Delete</button>
                     </div>
 
                 </li>
             </ul>
         </div> 
+    </div>
+    
 </div>
+
