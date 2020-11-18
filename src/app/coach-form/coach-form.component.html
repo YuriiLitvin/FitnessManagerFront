@@ -1,1 +1,7 @@
 <p>coach-form works!</p>
+<div class="form-group">
+    <label for="typeOfTrainig">Type of Training</label>
+    <select class="form-control" id="power" required>
+      <option *ngFor="let training of typeOfTraining" [value]="training">{{training}}</option>
+    </select>
+  </div>

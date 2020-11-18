@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Coach} from '../coach';
 import {CoachService} from 'src/app/services/coach.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-coach-detail',
@@ -9,16 +12,21 @@ import {CoachService} from 'src/app/services/coach.service';
 })
 export class CoachDetailComponent implements OnInit {
 
-  coach: Coach;
+  $coach = new Subject<Coach>();
 
-  constructor(private readonly coachService: CoachService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private coachService: CoachService
+  ) {}
 
   ngOnInit(): void {
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.coachService.getCoachById(params.get('id')))
+    ).subscribe(coach => this.$coach.next(coach));
   }
-  getCoach(): void {
-    this.coachService.getCoachById(this.coach.id)
-      .subscribe(coach => this.coach = coach);
-  }
+  
 
 
 
