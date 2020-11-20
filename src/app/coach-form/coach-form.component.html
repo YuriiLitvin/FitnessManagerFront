@@ -1,22 +1,44 @@
-<div >
-  <h1>Coach Form</h1>
-  <form [formGroup]="coachForm" (ngSubmit)="onSubmit(coachForm.value)">
-    <div>
-      <label for="name">
-        Name
-      </label>
-      <input id="name" type="text" formControlName="name">
-    </div>
-  
-    <div>
-      <label for="address">
-        Address
-      </label>
-      <input id="address" type="text" formControlName="address">
-    </div>
-  
-    <button class="button" type="submit">Submit</button>
-  
-  </form>
+<div class="container">
+  <div>
+    <form (ngSubmit)="onSubmit(coachForm.value)" #coachForm="ngForm">
+      <h1>Coach Form</h1>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName"
+               [(ngModel)]="model.firstName" name="name"
+               #name="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName"
+               [(ngModel)]="model.lastName" name="lastName">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email"
+               [(ngModel)]="model.email" name="email">
+      </div>
       
-</div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email"
+               [(ngModel)]="model.email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="mobileNumber">Email</label>
+        <input type="text" class="form-control" id="mobileNumber"
+               [(ngModel)]="model.mobileNumber" name="mobileNumber">
+      </div> 
+      
+      <div class="form-group">
+        <label for="typeOfTraining">Email</label>
+        <input type="text" class="form-control" id="typeOfTraining"
+               [(ngModel)]="model.typeOfTraining" name="typeOfTraining">
+      </div> 
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>

@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/coaches', pathMatch: 'full'},
   {path: 'coaches', component: CoachListComponent},
   {path: 'coach/:id', component: CoachDetailComponent},
-  {path: 'add', component: AddOrEditCoachComponent},
+  {path: 'coach/add', component: AddOrEditCoachComponent},
   {path: 'coach/edit/:id', component: AddOrEditCoachComponent},
   {path: '**', component: PageNotFoundComponent},
 

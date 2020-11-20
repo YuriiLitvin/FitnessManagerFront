@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import {Coach} from '../coach';
 import {CoachService} from '../services/coach.service';
-import { FormBuilder} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 
 
 @Component({
@@ -10,15 +10,18 @@ import { FormBuilder} from '@angular/forms';
   templateUrl: './coach-form.component.html',
   styleUrls: ['./coach-form.component.scss']
 })
-export class CoachFormComponent {
+export class CoachFormComponent implements OnInit{
 
+
+  model: Coach;
   coachForm: any;
   formGroup;
+
   constructor(
     private coachService: CoachService,
     private formBuilder: FormBuilder,
   ) 
-  {
+    {
     this.coachForm = this.formBuilder.group({
       firstName: '',
       lastName: '',
@@ -26,12 +29,15 @@ export class CoachFormComponent {
       mobileNumber: '',
       typeOfTraining: ''
     });
+    }
   
+    ngOnInit(): void {
+  }
   
-    onSubmit(coach: Coach);: void { 
-    this.coachService.addCoach(coach)
-    .subscribe();
-  };
+    onSubmit(coachForm): void {
+      this.coachService.addCoach(this.coachForm)
+      .subscribe();
+    }
 
   // newCoach(): void {
   //   this.model = new Coach();

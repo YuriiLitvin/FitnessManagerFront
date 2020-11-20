@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddOrEditCoachComponent implements OnInit {
   
-  
-  
   constructor() { }
 
   ngOnInit(): void {
