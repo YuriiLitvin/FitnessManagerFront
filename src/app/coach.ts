@@ -6,5 +6,5 @@ export class Coach {
     email: string;
     mobileNumber: string;
     typeOfTraining: number;
-  
+    
 }

@@ -1,7 +1,22 @@
-<p>coach-form works!</p>
-<div class="form-group">
-    <label for="typeOfTrainig">Type of Training</label>
-    <select class="form-control" id="power" required>
-      <option *ngFor="let training of typeOfTraining" [value]="training">{{training}}</option>
-    </select>
-  </div>
+<div >
+  <h1>Coach Form</h1>
+  <form [formGroup]="coachForm" (ngSubmit)="onSubmit(coachForm.value)">
+    <div>
+      <label for="name">
+        Name
+      </label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+  
+    <div>
+      <label for="address">
+        Address
+      </label>
+      <input id="address" type="text" formControlName="address">
+    </div>
+  
+    <button class="button" type="submit">Submit</button>
+  
+  </form>
+      
+</div>

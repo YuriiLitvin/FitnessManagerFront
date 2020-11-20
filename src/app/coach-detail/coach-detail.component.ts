@@ -4,6 +4,7 @@ import {CoachService} from 'src/app/services/coach.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-coach-detail',
@@ -17,7 +18,8 @@ export class CoachDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private coachService: CoachService
+    private coachService: CoachService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +28,10 @@ export class CoachDetailComponent implements OnInit {
         this.coachService.getCoachById(params.get('id')))
     ).subscribe(coach => this.$coach.next(coach));
   }
-  
+ 
+  goBack(): void {
+    this.location.back();
+  }
 
 
 

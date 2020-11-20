@@ -25,6 +25,12 @@ export class CoachService {
       tap((coach: Coach) => coach));
   }
 
+  addCoach(coach: Coach): Observable<Coach> {
+    return this.httpClient.post<Coach>(this.apiUrl, coach)
+      .pipe();
+  }
+
+
   deleteCoach(id: string): Observable<{}> {
     return this.httpClient.delete(this.apiUrl + id);  
   }

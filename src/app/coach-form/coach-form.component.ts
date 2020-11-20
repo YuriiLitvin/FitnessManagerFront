@@ -1,21 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import {Coach} from '../coach';
-import {CoachService} from 'src/app/services/coach.service';
+import {CoachService} from '../services/coach.service';
+import { FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-coach-form',
   templateUrl: './coach-form.component.html',
   styleUrls: ['./coach-form.component.scss']
 })
-export class CoachFormComponent implements OnInit {
+export class CoachFormComponent {
 
-  constructor(private readonly coachService: CoachService) { }
+  coachForm: any;
+  formGroup;
+  constructor(
+    private coachService: CoachService,
+    private formBuilder: FormBuilder,
+  ) 
+  {
+    this.coachForm = this.formBuilder.group({
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobileNumber: '',
+      typeOfTraining: ''
+    });
+  
+  
+    onSubmit(coach: Coach);: void { 
+    this.coachService.addCoach(coach)
+    .subscribe();
+  };
 
-  typeOfTraining = ['Yoga', 'PowerLifting', 'Dances', 'Fitness' ];
-
-  ngOnInit(): void {
-  }
-
-
-
+  // newCoach(): void {
+  //   this.model = new Coach();
+  // }
 }
