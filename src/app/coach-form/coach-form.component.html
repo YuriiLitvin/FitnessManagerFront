@@ -1,44 +1,35 @@
 <div class="container">
-  <div>
-    <form (ngSubmit)="onSubmit(coachForm.value)" #coachForm="ngForm">
-      <h1>Coach Form</h1>
-      <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName"
-               [(ngModel)]="model.firstName" name="name"
-               #name="ngModel">
-      </div>
 
-      <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName"
-               [(ngModel)]="model.lastName" name="lastName">
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email"
-               [(ngModel)]="model.email" name="email">
-      </div>
-      
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email"
-               [(ngModel)]="model.email" name="email">
-      </div>
-
-      <div class="form-group">
-        <label for="mobileNumber">Email</label>
-        <input type="text" class="form-control" id="mobileNumber"
-               [(ngModel)]="model.mobileNumber" name="mobileNumber">
-      </div> 
-      
-      <div class="form-group">
-        <label for="typeOfTraining">Email</label>
-        <input type="text" class="form-control" id="typeOfTraining"
-               [(ngModel)]="model.typeOfTraining" name="typeOfTraining">
-      </div> 
-      
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+  <form [formGroup]="coachForm" (ngSubmit)="onSubmit(coachForm.value)">
+    <label>
+      Id:
+      <input type="text" formControlName="id">
+    </label>
+    
+    <label>
+      First Name:
+      <input type="text" formControlName="firstName">
+    </label>
+  
+    <label>
+      Last Name:
+      <input type="text" formControlName="lastName">
+    </label>
+  
+    <label>
+      Email:
+      <input type="text" formControlName="email">
+    </label>
+    
+    <label>
+      Mobile Number:
+      <input type="text" formControlName="mobileNumber">
+    </label>
+    
+    <label>
+      Type of training:
+      <input type="text" formControlName="typeOfTraining">
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+</div>

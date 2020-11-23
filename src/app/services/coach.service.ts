@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Coach} from 'src/app/coach';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
 
@@ -25,9 +25,11 @@ export class CoachService {
       tap((coach: Coach) => coach));
   }
 
-  addCoach(coach: Coach): Observable<Coach> {
-    return this.httpClient.post<Coach>(this.apiUrl, coach)
-      .pipe();
+  addCoach(coach: Coach): Observable<any> {
+    const headers = { 'content-type': 'application/json'};  
+    const body = JSON.stringify(coach);
+    return this.httpClient.post(this.apiUrl, body, {headers});
+     
   }
 
 

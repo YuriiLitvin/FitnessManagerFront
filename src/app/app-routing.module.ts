@@ -7,10 +7,10 @@ import {PageNotFoundComponent} from 'src/app/page-not-found/page-not-found.compo
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/coaches', pathMatch: 'full'},
-  {path: 'coaches', component: CoachListComponent},
-  {path: 'coach/:id', component: CoachDetailComponent},
+  {path: '', redirectTo: '/coach', pathMatch: 'full'},
+  {path: 'coach', component: CoachListComponent},
   {path: 'coach/add', component: AddOrEditCoachComponent},
+  {path: 'coach/:id', component: CoachDetailComponent},
   {path: 'coach/edit/:id', component: AddOrEditCoachComponent},
   {path: '**', component: PageNotFoundComponent},
 
