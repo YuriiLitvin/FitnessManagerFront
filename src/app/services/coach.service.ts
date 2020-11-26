@@ -26,9 +26,9 @@ export class CoachService {
   }
 
   addCoach(coach: Coach): Observable<any> {
-    const headers = { 'content-type': 'application/json'};  
+    // const headers = { 'content-type': 'application/json'};  
     const body = JSON.stringify(coach);
-    return this.httpClient.post(this.apiUrl, body, {headers});
+    return this.httpClient.post<any>(this.apiUrl, body);
      
   }
 

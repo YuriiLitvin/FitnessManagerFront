@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Coach} from '../coach';
 import {CoachService} from 'src/app/services/coach.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+// import { Subject } from 'rxjs';
 import { Location } from '@angular/common';
 
 @Component({
@@ -13,20 +13,22 @@ import { Location } from '@angular/common';
 })
 export class CoachDetailComponent implements OnInit {
 
-  $coach = new Subject<Coach>();
-
+  coach: Coach;
+  coaches: Coach[];
+  coachId: number;
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private coachService: CoachService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.coachService.getCoachById(params.get('id')))
-    ).subscribe(coach => this.$coach.next(coach));
+    this.coachService.getCoachesFromApi()
+        .subscribe(coaches => this.coaches = coaches);
+    
+    // tslint:disable-next-line: radix
+    const id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.coachId = id;
   }
  
   goBack(): void {

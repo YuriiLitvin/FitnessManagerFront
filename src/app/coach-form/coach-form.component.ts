@@ -13,25 +13,17 @@ import {FormBuilder, FormArray, FormGroup} from '@angular/forms';
 export class CoachFormComponent {
 
   
-  
+  coach = new Coach();
+
+
   constructor(
     private coachService: CoachService,
     private formBuilder: FormBuilder,
   ) {}
   
-  coachForm = this.formBuilder.group({
-    firstName: [''],
-    lastName: [''],
-    email: [''],
-    mobileNumber: [''],
-    typeOfTraining: [''],
-  });
-  
-    
-  
     onSubmit(coachForm): void {
-      this.coachService.addCoach(coachForm.value)
-      .subscribe();
+      this.coachService.addCoach(this.coach)
+      .subscribe(coachForm => this.coach = coachForm);
 
     }
 
