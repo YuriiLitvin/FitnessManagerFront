@@ -41,9 +41,7 @@ export class CoachListComponent implements OnInit {
       .subscribe((coach: Coach) => this.$coach.next(coach));
     }
 
-    onSelect(coach: Coach): void {
-      this.router.navigate(['/coach', coach.id]);
-    }
+   
 
 
 

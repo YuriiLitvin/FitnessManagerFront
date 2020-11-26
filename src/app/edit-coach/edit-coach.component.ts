@@ -6,12 +6,11 @@ import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-coach-detail',
-  templateUrl: './coach-detail.component.html',
-  styleUrls: ['./coach-detail.component.scss']
+  selector: 'app-edit-coach',
+  templateUrl: './edit-coach.component.html',
+  styleUrls: ['./edit-coach.component.scss']
 })
-export class CoachDetailComponent implements OnInit {
-
+export class EditCoachComponent implements OnInit {
   
   coach: Coach;
  
@@ -28,12 +27,16 @@ export class CoachDetailComponent implements OnInit {
     ).subscribe(coach => this.coach = coach);
 
   }
- 
-  goBack(): void {
+  onEdit(coachForm): void {
+    this.coachService.updateCoach(this.coach)
+    // tslint:disable-next-line: no-shadowed-variable
+    .subscribe(coachForm => console.log(coachForm));
     this.location.back();
+  
   }
-
-
+  goBack(): void {
+      this.location.back();
+    }
 
 
 }

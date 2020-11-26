@@ -1,7 +1,7 @@
 <h1>Coaches</h1>
 
 <nav>
-    <a routerLink="/coach/add">Create Coach</a> 
+    <button><a routerLink="/coach/add">Create Coach</a></button>
 </nav> 
 
 
@@ -15,9 +15,9 @@
         <div>   
             <ul >
                 <li class="flex-container2" *ngFor="let coach of $coaches | async">
-                    <div>{{ coach.firstName | json}}</div>
-                    <div>{{ coach.typeOfTraining | json}}</div>
-                    <div><button (click)="getCoachById(coach.id)">Edit</button> | <button>(click)="onSelect(coach)">Details</button> | <button (click)="deleteCoach(coach.id)">Delete</button>
+                    <div>{{ coach.firstName }}</div>
+                    <div>{{ coach.typeOfTraining }}</div>
+                    <div><button><a routerLink="/coach/edit/{{coach.id}}">Edit</a></button> | <button><a routerLink="/coach/{{coach.id}}">Details</a></button> | <button (click)="deleteCoach(coach.id)">Delete</button>
                     </div>
 
                 </li>

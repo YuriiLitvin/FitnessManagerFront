@@ -32,6 +32,11 @@ export class CoachService {
      
   }
 
+  updateCoach(coach: Coach): Observable<any> {
+    const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
+    const body = JSON.stringify(coach);
+    return this.httpClient.put<any>(this.apiUrl + coach.id , body, httpOptions);
+  }
 
   deleteCoach(id: string): Observable<{}> {
     return this.httpClient.delete(this.apiUrl + id);  

@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import {Coach} from '../coach';
 import {CoachService} from '../services/coach.service';
 import {FormBuilder, FormArray, FormGroup} from '@angular/forms';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -18,17 +19,18 @@ export class CoachFormComponent {
 
   constructor(
     private coachService: CoachService,
-    private formBuilder: FormBuilder,
+    private location: Location,
   ) {}
   
     onSubmit(coachForm): void {
       this.coachService.addCoach(this.coach)
       // tslint:disable-next-line: no-shadowed-variable
       .subscribe(coachForm => console.log(coachForm));
+      this.location.back();
 
     }
-
-  // newCoach(): void {
-  //   this.model = new Coach();
-  // }
+    // goBack(): void {
+    //   this.location.back();
+    // }
+  
 }
