@@ -23,7 +23,8 @@ export class CoachFormComponent {
   
     onSubmit(coachForm): void {
       this.coachService.addCoach(this.coach)
-      .subscribe(coachForm => this.coach = coachForm);
+      // tslint:disable-next-line: no-shadowed-variable
+      .subscribe(coachForm => console.log(coachForm));
 
     }
 

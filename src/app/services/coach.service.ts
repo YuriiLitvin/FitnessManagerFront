@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Coach} from 'src/app/coach';
 import {Observable, Subject} from 'rxjs';
@@ -26,9 +26,9 @@ export class CoachService {
   }
 
   addCoach(coach: Coach): Observable<any> {
-    // const headers = { 'content-type': 'application/json'};  
+    const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
     const body = JSON.stringify(coach);
-    return this.httpClient.post<any>(this.apiUrl, body);
+    return this.httpClient.post<any>(this.apiUrl, body, httpOptions);
      
   }
 
