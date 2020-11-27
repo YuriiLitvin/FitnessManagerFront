@@ -1,1 +1,45 @@
-<app-coach-form></app-coach-form>
+<div class="container">
+    <h2>Add new Coach</h2>
+      <form #coachForm="ngForm" (ngSubmit)="onSubmit(coachForm.value)" novalidate>
+           
+        {{coachForm.value | json}}
+        <hr />
+        {{coach | json}}
+        
+        <div class="form-group">
+          <label>First Name</label> 
+          <input type="text" class="form-control" name="firstName" 
+          [(ngModel)]="coach.firstName">
+        </div>
+    
+        <div class="form-group">
+          <label>Last Name</label> 
+          <input type="text" class="form-control" name="lastName" 
+          [(ngModel)]="coach.lastName">
+        </div>
+    
+        <div class="form-group">
+          <label>Email</label> 
+          <input type="text" class="form-control" name="email" 
+          [(ngModel)]="coach.email">
+        </div>
+    
+        <div class="form-group">
+          <label>Mobile Number</label> 
+          <input type="text" class="form-control" name="mobileNumber" 
+          [(ngModel)]="coach.mobileNumber">
+        </div>
+    
+        <div class="form-group">
+          <label for="power">Type Of Training</label>
+          <select class="form-control" id="power"
+                  required
+                  [(ngModel)]="coach.typeOfTraining" name="typeOfTraining">
+            <option *ngFor="let train of trainings" [value]="train">{{train}}</option>
+          </select>
+        </div>
+        
+        <button type="submit">Submit</button>
+        <!-- <button (click) ="goBack()">Back</button> -->
+      </form>
+    </div>

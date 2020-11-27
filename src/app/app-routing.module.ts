@@ -6,7 +6,6 @@ import { CoachListComponent } from 'src/app/coach-list/coach-list.component';
 import { AddCoachComponent } from './add-coach/add-coach.component';
 import { EditCoachComponent } from 'src/app/edit-coach/edit-coach.component';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
-import { CoachFormComponent } from './coach-form/coach-form.component';
 import {PageNotFoundComponent} from 'src/app/page-not-found/page-not-found.component';
 
 
@@ -30,6 +29,5 @@ export const routingComponents = [
   AddCoachComponent,
   EditCoachComponent,
   CoachDetailComponent,
-  CoachFormComponent,
   PageNotFoundComponent
   ];

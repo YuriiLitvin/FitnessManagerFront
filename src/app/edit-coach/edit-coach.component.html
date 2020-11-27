@@ -27,8 +27,12 @@
         </div>
     
         <div class="form-group">
-          <label>Type Of Training</label> 
-          <input type="number" class="form-control" name="typeOfTraining" [(ngModel)]="coach.typeOfTraining">
+          <label for="power">Type Of Training</label>
+          <select class="form-control" id="power"
+                  required
+                  [(ngModel)]="coach.typeOfTraining" name="typeOfTraining">
+            <option *ngFor="let train of trainings" [value]="train">{{train}}</option>
+          </select>
         </div>
       
         

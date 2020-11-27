@@ -13,7 +13,9 @@ import { Location } from '@angular/common';
 export class EditCoachComponent implements OnInit {
   
   coach: Coach;
- 
+  
+  trainings = [];
+
   constructor(
     private route: ActivatedRoute,
     private coachService: CoachService,
@@ -25,7 +27,8 @@ export class EditCoachComponent implements OnInit {
       switchMap((params: ParamMap) =>
         this.coachService.getCoachById(params.get('id')))
     ).subscribe(coach => this.coach = coach);
-
+    
+    this.trainings = this.coachService.trainings;
   }
   onEdit(coachForm): void {
     this.coachService.updateCoach(this.coach)
@@ -38,5 +41,8 @@ export class EditCoachComponent implements OnInit {
       this.location.back();
     }
 
-
+  // getTrainings(): string[] {
+  //   return this.trainings = this.coach.typeOfTraining;
+  // }
+  
 }
