@@ -4,6 +4,7 @@ import { CoachService } from 'src/app/services/coach.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common';
+import { Trainings } from '../trainings';
 
 @Component({
   selector: 'app-edit-coach',
@@ -14,12 +15,13 @@ export class EditCoachComponent implements OnInit {
   
   coach: Coach;
   
-  trainings = [];
+  trainings: any;
 
   constructor(
     private route: ActivatedRoute,
     private coachService: CoachService,
-    private location: Location
+    private location: Location,
+    private enumTrainings: Trainings
   ) {}
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class EditCoachComponent implements OnInit {
         this.coachService.getCoachById(params.get('id')))
     ).subscribe(coach => this.coach = coach);
     
-    this.trainings = this.coachService.trainings;
+    this.trainings = this.enumTrainings;
   }
   onEdit(coachForm): void {
     this.coachService.updateCoach(this.coach)

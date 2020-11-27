@@ -13,7 +13,7 @@ export class CoachService {
 
   apiUrl = 'https://localhost:5001/api/Coach/';
 
-  public trainings = ['Yoga', 'Dances', 'Fitness', 'PowerLifting'];
+  // public trainings = ['Yoga', 'Dances', 'Fitness', 'PowerLifting'];
 
   
   constructor(private readonly httpClient: HttpClient) { }
