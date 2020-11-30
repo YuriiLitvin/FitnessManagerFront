@@ -39,7 +39,7 @@ export class CoachListComponent implements OnInit {
 
     deleteCoach(id: string): void {
       this.coachService.deleteCoach(id)
-      .pipe(tap(() => this.getCoaches()))
+      // .pipe(tap(() => this.getCoaches()))
       .subscribe((coach: Coach) => this.$coach.next(coach));
     }
 

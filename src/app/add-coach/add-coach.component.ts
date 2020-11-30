@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Coach } from '../coach';
 import { CoachService } from '../services/coach.service';
 import { Location } from '@angular/common';
-import { Trainings } from '../trainings';
+import { TrainingTypes } from '../training-types';
 
 @Component({
   selector: 'app-add-coach',
@@ -11,18 +11,21 @@ import { Trainings } from '../trainings';
 })
 export class AddCoachComponent implements OnInit{
 
+  // trainings = ['Yoga', 
+  // 'Dances',
+  // 'Fitness',
+  // 'PowerLifting'];
   trainings: any;
-
+  keys = Object.keys;
   coach = new Coach();
 
   constructor(
     private coachService: CoachService,
     private location: Location,
-    private enumTrainings: Trainings
   ) {}
     
   ngOnInit(): void {
-    this.trainings = this.enumTrainings;
+   this.trainings = TrainingTypes;
   } 
     
     

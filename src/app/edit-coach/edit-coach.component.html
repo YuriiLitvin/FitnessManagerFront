@@ -31,7 +31,8 @@
           <select class="form-control" id="power"
                   required
                   [(ngModel)]="coach.typeOfTraining" name="typeOfTraining">
-            <option *ngFor="let train of trainings" [value]="train">{{train}}</option>
+            <option *ngFor="let train of keys(trainings)" [value]="trainings[train]">
+              {{trainings[train]}}</option>
           </select>
         </div>
       
