@@ -7,6 +7,4 @@ export class Coach {
     mobileNumber: string;
     typeOfTraining: number;
     
-
-    
 }

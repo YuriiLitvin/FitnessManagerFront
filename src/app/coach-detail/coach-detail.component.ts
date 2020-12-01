@@ -12,9 +12,17 @@ import { Location } from '@angular/common';
 })
 export class CoachDetailComponent implements OnInit {
 
-  
-  coach: Coach;
+  // coach: Coach = {
+  //   id: '',
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   mobileNumber: '',
+  //   typeOfTraining: 0
+  // };
  
+  coach = new Coach();
+  
   constructor(
     private route: ActivatedRoute,
     private coachService: CoachService,
@@ -32,8 +40,5 @@ export class CoachDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-
-
 
 }

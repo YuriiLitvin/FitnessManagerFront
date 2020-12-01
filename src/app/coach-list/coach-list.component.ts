@@ -12,7 +12,7 @@ import {tap} from 'rxjs/operators';
 })
 export class CoachListComponent implements OnInit {
     
-    $coach = new Subject<Coach>();
+    coach: Coach;
     $coaches = new Subject<Coach[]>();
     
     constructor(private coachService: CoachService, private router: Router) {}
@@ -27,20 +27,15 @@ export class CoachListComponent implements OnInit {
       .subscribe(coaches => this.$coaches.next(coaches)); 
     }
 
-
     getCoachById(id: string): void {
       this.coachService.getCoachById(id)
-      .subscribe(coach => this.$coach.next(coach));
+      .subscribe(coach => this.coach = coach);
     }
 
     deleteCoach(id: string): void {
       this.coachService.deleteCoach(id)
       .pipe(tap(() => this.getCoaches()))
-      .subscribe((coach: Coach) => this.$coach.next(coach));
+      .subscribe((coach: Coach) => this.coach = coach);
     }
-
-   
-
-
 
 }

@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Add new Coach</h2>
-      <form #coachForm="ngForm" (ngSubmit)="onSubmit(coachForm.value)" novalidate>
+      <form #coachForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
            
         {{coachForm.value | json}}
         <hr />
@@ -35,12 +35,11 @@
           <select class="form-control" id="power"
                   required
                   [(ngModel)]="coach.typeOfTraining" name="typeOfTraining">
-            <option *ngFor="let train of keys(trainings)" [value]="train">
-              {{trainings[train]}}</option>
+            <option *ngFor="let type of keys(trainingTypes)" [value]="type">
+              {{trainingTypes[type]}}</option>
           </select>
         </div>
         
         <button type="submit">Submit</button>
-        <!-- <button (click) ="goBack()">Back</button> -->
       </form>
     </div>

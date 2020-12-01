@@ -17,7 +17,12 @@
                 <li class="flex-container2" *ngFor="let coach of $coaches | async">
                     <div>{{ coach.firstName }}</div>
                     <div>{{ coach.typeOfTraining }}</div>
-                    <div><button><a routerLink="/coach/edit/{{coach.id}}">Edit</a></button> | <button><a routerLink="/coach/{{coach.id}}">Details</a></button> | <button (click)="deleteCoach(coach.id)">Delete</button>
+                    <div><button><a routerLink="/coach/edit/{{coach.id}}">Edit</a>
+                        </button> | 
+                        <button><a routerLink="/coach/{{coach.id}}">Details</a>
+                        </button> | 
+                        <button (click)="deleteCoach(coach.id)">Delete
+                        </button>
                     </div>
 
                 </li>

@@ -9,7 +9,9 @@
         "parameters",
         "statements"
       ]
+      
     },
+    "no-consecutive-blank-lines": true,
     "array-type": false,
     "arrow-return-shorthand": true,
     "curly": true,

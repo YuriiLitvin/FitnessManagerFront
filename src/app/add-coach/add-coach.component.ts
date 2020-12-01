@@ -11,12 +11,12 @@ import { TrainingTypes } from '../training-types';
 })
 export class AddCoachComponent implements OnInit{
 
-  
-  trainings: any;
+  trainingTypes: any;
 
   keys = Object.keys;
 
   coach = new Coach();
+  coachForm: Coach;
 
   constructor(
     private coachService: CoachService,
@@ -24,14 +24,12 @@ export class AddCoachComponent implements OnInit{
   ) {}
     
   ngOnInit(): void {
-   this.trainings = TrainingTypes;
+   this.trainingTypes = TrainingTypes;
   } 
     
-    
-  onSubmit(coachForm): void {
-    this.coachService.addCoach(this.coach)
-    // tslint:disable-next-line: no-shadowed-variable
-    .subscribe(coachForm => console.log(coachForm));
+  onSubmit(coachForm: Coach): void {
+    this.coachService.addCoach(this.coachForm)
+    .subscribe(() => console.log(coachForm));
     
     this.location.back();
 

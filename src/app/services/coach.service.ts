@@ -4,7 +4,6 @@ import { Coach } from 'src/app/coach';
 import { Observable, pipe, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,6 @@ export class CoachService {
 
   apiUrl = 'https://localhost:5001/api/Coach/';
 
-  
   constructor(private readonly httpClient: HttpClient) { }
 
   getCoachesFromApi(): Observable<Coach[]> {
@@ -26,14 +24,14 @@ export class CoachService {
       tap((coach: Coach) => coach));
   }
 
-  addCoach(coach: Coach): Observable<any> {
+  addCoach(coach: Coach): Observable<{}> {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
     const body = JSON.stringify(coach);
     return this.httpClient.post<any>(this.apiUrl, body, httpOptions);
      
   }
 
-  updateCoach(coach: Coach): Observable<any> {
+  updateCoach(coach: Coach): Observable<{}> {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
     const body = JSON.stringify(coach);
     return this.httpClient.put<any>(this.apiUrl + coach.id , body, httpOptions);
@@ -44,9 +42,4 @@ export class CoachService {
     
   }
 
-  
-
 }
-
-
-

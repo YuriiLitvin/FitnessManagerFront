@@ -6,7 +6,6 @@ import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { TrainingTypes } from '../training-types';
 
-
 @Component({
   selector: 'app-edit-coach',
   templateUrl: './edit-coach.component.html',
@@ -14,9 +13,10 @@ import { TrainingTypes } from '../training-types';
 })
 export class EditCoachComponent implements OnInit {
   
-  coach: Coach;
+  coach = new Coach();
+   
+  trainingTypes: any;
   
-  trainings: any;
   keys = Object.keys;
 
   constructor(
@@ -32,7 +32,7 @@ export class EditCoachComponent implements OnInit {
         this.coachService.getCoachById(params.get('id')))
     ).subscribe(coach => this.coach = coach);
     
-    this.trainings = TrainingTypes;
+    this.trainingTypes = TrainingTypes;
     
   }
   onEdit(coachForm): void {
@@ -46,8 +46,4 @@ export class EditCoachComponent implements OnInit {
       this.location.back();
     }
 
-  // getTrainings(): string[] {
-  //   return this.trainings = this.coach.typeOfTraining;
-  // }
-  
 }
