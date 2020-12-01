@@ -30,4 +30,4 @@ export const routingComponents = [
   EditCoachComponent,
   CoachDetailComponent,
   PageNotFoundComponent
-  ];
+];

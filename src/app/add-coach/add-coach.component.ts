@@ -11,12 +11,11 @@ import { TrainingTypes } from '../training-types';
 })
 export class AddCoachComponent implements OnInit{
 
-  // trainings = ['Yoga', 
-  // 'Dances',
-  // 'Fitness',
-  // 'PowerLifting'];
+  
   trainings: any;
+
   keys = Object.keys;
+
   coach = new Coach();
 
   constructor(

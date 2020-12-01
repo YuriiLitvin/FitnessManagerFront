@@ -12,20 +12,16 @@ import {tap} from 'rxjs/operators';
 })
 export class CoachListComponent implements OnInit {
     
-    // coach: Coach;
     $coach = new Subject<Coach>();
     $coaches = new Subject<Coach[]>();
     
-    
-    constructor(private coachService: CoachService, 
-                private router: Router) {}
+    constructor(private coachService: CoachService, private router: Router) {}
     
     ngOnInit(): void {
-      
       this.getCoaches();
       
     }
-
+    
     getCoaches(): void {
       this.coachService.getCoachesFromApi()
       .subscribe(coaches => this.$coaches.next(coaches)); 
@@ -39,7 +35,7 @@ export class CoachListComponent implements OnInit {
 
     deleteCoach(id: string): void {
       this.coachService.deleteCoach(id)
-      // .pipe(tap(() => this.getCoaches()))
+      .pipe(tap(() => this.getCoaches()))
       .subscribe((coach: Coach) => this.$coach.next(coach));
     }
 

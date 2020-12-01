@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Coach } from 'src/app/coach';
-import { Observable, pipe } from 'rxjs';
+import { Observable, pipe, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 
@@ -10,8 +10,6 @@ import { tap } from 'rxjs/operators';
 })
 
 export class CoachService {
-
-  coaches: Coach[];
 
   apiUrl = 'https://localhost:5001/api/Coach/';
 
@@ -31,28 +29,22 @@ export class CoachService {
   addCoach(coach: Coach): Observable<any> {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
     const body = JSON.stringify(coach);
-    return this.httpClient.post<any>(this.apiUrl, body, httpOptions)
-    .pipe(tap(() => this.refreshList()));
+    return this.httpClient.post<any>(this.apiUrl, body, httpOptions);
      
   }
 
   updateCoach(coach: Coach): Observable<any> {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
     const body = JSON.stringify(coach);
-    return this.httpClient.put<any>(this.apiUrl + coach.id , body, httpOptions)
-    .pipe(tap(() => this.refreshList()));
+    return this.httpClient.put<any>(this.apiUrl + coach.id , body, httpOptions);
   }
 
   deleteCoach(id: string): Observable<{}> {
-    return this.httpClient.delete(this.apiUrl + id)
-    .pipe(tap(() => this.refreshList()));
-     
+    return this.httpClient.delete(this.apiUrl + id);
+    
   }
 
-  refreshList(): void {
-    this.getCoachesFromApi()
-    .subscribe(coaches => this.coaches = coaches);
-  }
+  
 
 }
 
