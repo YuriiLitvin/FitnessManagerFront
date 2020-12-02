@@ -26,12 +26,10 @@ export class AddCoachComponent implements OnInit{
   } 
     
   onSubmit(): void {
-   
     this.coachService.addCoach(this.coach)
     .subscribe(() => console.log(this.coach));
     
     this.location.back();
-
   } 
   
 }

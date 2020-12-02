@@ -33,7 +33,7 @@ export class EditCoachComponent implements OnInit {
     ).subscribe(coach => this.coach = coach);
     
   }
-  onEdit(): void {
+  onSubmit(): void {
     this.coachService.updateCoach(this.coach)
     .subscribe(() => console.log(this.coach));
     this.location.back();
