@@ -14,8 +14,8 @@ import { TrainingTypes } from '../training-types';
 export class EditCoachComponent implements OnInit {
   
   coach = new Coach();
-   
-  trainingTypes: any;
+
+  trainingTypes = TrainingTypes;
   
   keys = Object.keys;
 
@@ -32,13 +32,10 @@ export class EditCoachComponent implements OnInit {
         this.coachService.getCoachById(params.get('id')))
     ).subscribe(coach => this.coach = coach);
     
-    this.trainingTypes = TrainingTypes;
-    
   }
-  onEdit(coachForm): void {
+  onEdit(): void {
     this.coachService.updateCoach(this.coach)
-    // tslint:disable-next-line: no-shadowed-variable
-    .subscribe(coachForm => console.log(coachForm));
+    .subscribe(() => console.log(this.coach));
     this.location.back();
   
   }

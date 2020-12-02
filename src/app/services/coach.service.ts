@@ -24,17 +24,17 @@ export class CoachService {
       tap((coach: Coach) => coach));
   }
 
-  addCoach(coach: Coach): Observable<{}> {
+  addCoach(coach: Coach): Observable<Coach> {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
     const body = JSON.stringify(coach);
-    return this.httpClient.post<any>(this.apiUrl, body, httpOptions);
+    return this.httpClient.post<Coach>(this.apiUrl, body, httpOptions);
      
   }
 
-  updateCoach(coach: Coach): Observable<{}> {
+  updateCoach(coach: Coach): Observable<Coach> {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};  
     const body = JSON.stringify(coach);
-    return this.httpClient.put<any>(this.apiUrl + coach.id , body, httpOptions);
+    return this.httpClient.put<Coach>(this.apiUrl + coach.id , body, httpOptions);
   }
 
   deleteCoach(id: string): Observable<{}> {
